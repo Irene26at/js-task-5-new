@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: rgb(177, 44, 182);
+        
+
+       
+      }
+      
+      #container {
+        text-align: center;
+      }
+      #result {
+        margin-top: 20px;
+      }
+      .btn{
+        background-color: rgb(255, 17, 17);
+        border-radius: 1px;
+        
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: inline-block;
+        
+
+
+      }
+    </style>
+    </head>
+    <body>
+      <div id="container" >
+        <h2><u>Person Search</u></h2>
+        <h4>Enter the name of person to be searched!</h4>
+        <input type="text" id="nameInput" placeholder="Enter person name"><br><br>
+        <button onclick="getDetails()" class="btn">Find</button>
+        <div id="result"></div>
+      </div>
+      
+      <script>
+        var data = [
+          {
+            "name": "Alice",
+            "age": 25,
+            "place": "New York",
+            "dob": "1998-03-12"
+          },
+          {
+            "name": "Bob",
+            "age": 32,
+            "place": "Los Angeles",
+            "dob": "1991-07-19"
+          },
+          {
+            "name": "Charlie",
+            "age": 41,
+            "place": "Chicago",
+            "dob": "1982-11-03"
+          },
+          {
+            "name": "David",
+            "age": 18,
+            "place": "Houston",
+            "dob": "2005-05-08"
+          },
+          {
+            "name": "Emily",
+            "age": 29,
+            "place": "San Francisco",
+            "dob": "1994-09-26"
+          },
+          {
+            "name": "Frank",
+            "age": 36,
+            "place": "Boston",
+            "dob": "1987-12-30"
+          },
+          {
+            "name": "Grace",
+            "age": 22,
+            "place": "Miami",
+            "dob": "2001-01-14"
+          },
+          {
+            "name": "Harry",
+            "age": 47,
+            "place": "Seattle",
+            "dob": "1976-06-21"
+          }
+        ];
+      
+        function getDetails() {
+          var nameInput = document.getElementById("nameInput").value;
+          var resultDiv = document.getElementById("result");
+          var details = data.find(person => person.name.toLowerCase() === nameInput.toLowerCase());
+          
+          if (details) {
+            resultDiv.innerHTML = `
+              <h2>Details of ${details.name}:</h2>
+              <p>Age: ${details.age}</p>
+              <p>Place: ${details.place}</p>
+              <p>Date of Birth: ${details.dob}</p>
+            `;
+          } else {
+            resultDiv.innerHTML = "Person not found.";
+          }
+        }
+      </script>
+      
+      </body></html>
+   
